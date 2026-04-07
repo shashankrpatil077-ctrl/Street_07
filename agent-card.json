@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "erc8004-v1",
+  "name": "UltimateBTCAgent-BTC",
+  "description": "Autonomous crypto trading agent with 13-indicator confluence scoring, ATR-based risk management, EIP-712 signed trade intents, and full ERC-8004 on-chain audit trail.",
+  "version": "2.0.0",
+  "agentWallet": "0x0DF8e58C057b8009D2C6f1715E0E118f0415710A",
+  "capabilities": [
+    "trade",
+    "risk_management",
+    "on_chain_audit",
+    "partial_profit_taking"
+  ],
+  "markets": [
+    "BTC/USD"
+  ],
+  "riskParams": {
+    "maxRiskPerTrade": "1%",
+    "maxDrawdown": "10%",
+    "stopLossType": "ATR_1.5x",
+    "minRiskReward": "1:2"
+  },
+  "indicators": [
+    "RSI(14)",
+    "MACD(12,26,9)",
+    "BollingerBands(20,2)",
+    "EMA(9,21,50,200)",
+    "ATR(14)",
+    "SuperTrend(10,3)",
+    "KeltnerChannel(20,2)",
+    "ADX(14)",
+    "VWAP",
+    "PivotPoints",
+    "VolumeProfile(POC)",
+    "HeikenAshi",
+    "ParabolicSAR",
+    "Aroon(14)",
+    "DonchianChannel(20)"
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/your_handle",
+    "github": "https://github.com/your_repo"
+  },
+  "createdAt": "2026-04-07T10:31:57.837945+00:00"
+}
