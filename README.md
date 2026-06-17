@@ -1,29 +1,51 @@
+<!-- Animated Header -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1b27,100:161b22&height=200&section=header&text=Street_07&fontSize=50&fontColor=58a6ff&animation=fadeIn&fontAlignY=35&desc=Autonomous%20BTC%20Trading%20Agent&descSize=18&descColor=8b949e&descAlignY=55" />
+
 <div align="center">
 
-# Street_07
+[![Python](https://img.shields.io/badge/Python_3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Kraken](https://img.shields.io/badge/Kraken_CLI-5741D9?style=for-the-badge&logo=kraken&logoColor=white)](https://docs.kraken.com/cli/)
+[![Base](https://img.shields.io/badge/Base_Sepolia-0052FF?style=for-the-badge&logo=coinbase&logoColor=white)](https://base.org)
+[![License](https://img.shields.io/badge/License-MIT-444444?style=for-the-badge)](LICENSE)
 
-**Autonomous BTC Trading Agent**
+<br/>
 
-[![Python](https://img.shields.io/badge/Python_3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![Kraken](https://img.shields.io/badge/Kraken_CLI-5741D9?style=flat-square&logo=kraken&logoColor=white)](https://docs.kraken.com/cli/)
-[![Base](https://img.shields.io/badge/Base_Sepolia-0052FF?style=flat-square&logo=coinbase&logoColor=white)](https://base.org)
-[![License](https://img.shields.io/badge/License-MIT-444444?style=flat-square)](LICENSE)
-
-An autonomous crypto trading agent that monitors live BTC market data, evaluates conditions using a 13-indicator confluence strategy, and executes trades via Kraken CLI — with on-chain trustless logging via ERC-8004.
-
-> Built for the **Surge × Kraken AI Trading Agents Hackathon** on lablab.ai
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=13-Indicator+Confluence+Strategy;ERC-8004+On-Chain+Trustless+Logging;Built+for+Surge+%C3%97+Kraken+Hackathon" alt="Typing SVG" />
 
 </div>
 
 ---
 
+## ▸ Overview
+
+**Street_07** is an autonomous crypto trading agent that monitors live Bitcoin market data, evaluates trading conditions using a 13-indicator confluence strategy, and executes trades via the Kraken CLI. It features on-chain trustless execution by registering its agent identity and logging trade intents on Base Sepolia using the **ERC-8004** standard.
+
+---
+
 ## ▸ Features
 
-- **13-Indicator Confluence Engine** — VWAP, MACD, RSI, Heiken Ashi, Parabolic SAR, EMAs, and more. The agent calculates a real-time composite market score before entering any position.
-- **Kraken CLI Execution** — Automatically places `[DRY RUN]` paper trades when the confluence score crosses the entry threshold.
-- **ERC-8004 On-Chain Logging** — Registers agent identity and logs every trade intent as an immutable checkpoint on Base Sepolia.
-- **Risk Management** — Session filters (Tokyo/London/NY bands), 1% risk profiling, and a 3-tranche exit strategy (Stop Loss → TP1 → TP2).
-- **Streamlit Dashboard** — Local web UI to start, stop, and monitor the agent's live terminal output.
+<table>
+  <tr>
+    <td width="25%" align="center"><strong>Confluence Engine</strong></td>
+    <td>13 technical indicators — VWAP, MACD, RSI, Heiken Ashi, Parabolic SAR, EMAs, and more. Calculates a real-time composite market score before any position entry.</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Kraken Execution</strong></td>
+    <td>Automatically places <code>[DRY RUN]</code> paper trades via Kraken CLI when the confluence score crosses the entry threshold.</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>On-Chain Logging</strong></td>
+    <td>Registers agent identity and logs every trade intent as an immutable ERC-8004 checkpoint on Base Sepolia.</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Risk Management</strong></td>
+    <td>Session filters (Tokyo/London/NY bands), 1% risk profiling, and a 3-tranche exit strategy (Stop Loss → TP1 → TP2).</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Live Dashboard</strong></td>
+    <td>Streamlit web UI to start, stop, and monitor the agent's live terminal output and indicator states.</td>
+  </tr>
+</table>
 
 ---
 
@@ -39,6 +61,34 @@ graph LR
     F -->|Checkpoint| G[(Base Sepolia)]
     H[Streamlit Dashboard] <--> B
 ```
+
+---
+
+## ▸ Indicators
+
+<details>
+<summary><strong>View all 13 indicators used in the confluence engine</strong></summary>
+<br/>
+
+| # | Indicator | Signal Type |
+|---|---|---|
+| 1 | **VWAP** | Volume-weighted average price |
+| 2 | **MACD** | Trend momentum + signal crossover |
+| 3 | **RSI** | Overbought / oversold detection |
+| 4 | **Heiken Ashi** | Smoothed candlestick patterns |
+| 5 | **Parabolic SAR** | Trend direction + trailing stop |
+| 6 | **EMA 9** | Short-term exponential moving average |
+| 7 | **EMA 21** | Medium-term exponential moving average |
+| 8 | **EMA 50** | Long-term trend filter |
+| 9 | **Bollinger Bands** | Volatility + mean reversion |
+| 10 | **Stochastic RSI** | Momentum oscillator |
+| 11 | **ADX** | Trend strength measurement |
+| 12 | **OBV** | On-balance volume flow |
+| 13 | **ATR** | Average true range for position sizing |
+
+Each indicator votes ±1. The composite score determines entry/exit signals.
+
+</details>
 
 ---
 
@@ -89,3 +139,6 @@ python agent.py
 ## ▸ License
 
 MIT License — see [LICENSE](LICENSE) for details.
+
+<!-- Animated Footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:1a1b27,100:0d1117&height=120&section=footer" />
