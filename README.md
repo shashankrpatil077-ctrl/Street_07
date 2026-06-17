@@ -71,24 +71,24 @@ graph LR
     classDef onchain fill:#0e2d5c,stroke:#3b82f6,stroke-width:2px,color:#fff,rx:8,ry:8
     classDef db fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#fff
 
-    subgraph Inputs["📡 Market Feeds"]
-        A["📈 Kraken WebSockets"]:::data
+    subgraph Inputs["Market Feeds"]
+        A["Kraken WebSockets"]:::data
     end
     
-    subgraph Core["🧠 Autonomous Engine"]
-        B{"🤖 Agent Core"}:::brain
-        C["📊 13-Indicator Confluence"]:::logic
-        H["🖥️ Streamlit Dashboard"]:::data
+    subgraph Core["Autonomous Engine"]
+        B{"Agent Core"}:::brain
+        C["13-Indicator Confluence"]:::logic
+        H["Streamlit Dashboard"]:::data
     end
     
-    subgraph Execution["⚡ Execution Layer"]
-        D["💸 Kraken CLI (Execute Trade)"]:::action
-        E["🛑 Hold / Monitor"]:::action
+    subgraph Execution["Execution Layer"]
+        D["Kraken CLI (Execute Trade)"]:::action
+        E["Hold / Monitor"]:::action
     end
     
-    subgraph Blockchain["⛓️ Web3 Logging"]
-        F["🔐 ERC-8004 Logger"]:::onchain
-        G[("🌐 Base Sepolia Testnet")]:::db
+    subgraph Blockchain["Web3 Logging"]
+        F["ERC-8004 Logger"]:::onchain
+        G[("Base Sepolia Testnet")]:::db
     end
 
     %% Flow
