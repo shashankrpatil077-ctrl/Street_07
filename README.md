@@ -52,17 +52,6 @@
 ## ▸ Architecture
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#000000',
-    'primaryTextColor': '#F8F8F2',
-    'primaryBorderColor': '#333333',
-    'lineColor': '#444444',
-    'secondaryColor': '#0A0A0A',
-    'tertiaryColor': '#111111'
-  }
-}}%%
 graph LR
     classDef data fill:#0A0A0A,stroke:#00DFD8,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
     classDef brain fill:#0A0A0A,stroke:#7928CA,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
