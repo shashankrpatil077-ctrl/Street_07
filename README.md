@@ -53,12 +53,12 @@
 
 ```mermaid
 graph LR
-    classDef data fill:#0A0A0A,stroke:#00DFD8,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
-    classDef brain fill:#0A0A0A,stroke:#7928CA,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
-    classDef logic fill:#0A0A0A,stroke:#0070F3,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
-    classDef action fill:#0A0A0A,stroke:#F5A623,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
-    classDef onchain fill:#0A0A0A,stroke:#FF0080,stroke-width:1.5px,color:#FFFFFF,rx:6,ry:6
-    classDef db fill:#0A0A0A,stroke:#0070F3,stroke-width:1.5px,color:#FFFFFF
+    classDef data fill:#0A0A0A,stroke:#00DFD8,stroke-width:2px,color:#FFFFFF,rx:6,ry:6
+    classDef brain fill:#0A0A0A,stroke:#7928CA,stroke-width:2px,color:#FFFFFF,rx:6,ry:6
+    classDef logic fill:#0A0A0A,stroke:#0070F3,stroke-width:2px,color:#FFFFFF,rx:6,ry:6
+    classDef action fill:#0A0A0A,stroke:#F5A623,stroke-width:2px,color:#FFFFFF,rx:6,ry:6
+    classDef onchain fill:#0A0A0A,stroke:#FF0080,stroke-width:2px,color:#FFFFFF,rx:6,ry:6
+    classDef db fill:#0A0A0A,stroke:#0070F3,stroke-width:2px,color:#FFFFFF
 
     subgraph Inputs["Market Feeds"]
         A["Kraken WebSockets"]:::data
