@@ -1,89 +1,91 @@
-# 🚀 Street_07: Autonomous BTC Trading Agent
+<div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Base](https://img.shields.io/badge/Base-Sepolia-blue)](https://base.org)
+# Street_07
 
-> Built for the **Surge x Kraken AI Trading Agents Hackathon** on lablab.ai.
+**Autonomous BTC Trading Agent**
 
-**Street_07** is an autonomous crypto trading agent that monitors live Bitcoin (BTC) market data, evaluates trading conditions using 13 technical indicators, and executes trades via the Kraken CLI. It features a Trustless/Web3 integration by registering its agent identity and trade intents on the Base Sepolia testnet using the ERC-8004 standard.
+[![Python](https://img.shields.io/badge/Python_3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Kraken](https://img.shields.io/badge/Kraken_CLI-5741D9?style=flat-square&logo=kraken&logoColor=white)](https://docs.kraken.com/cli/)
+[![Base](https://img.shields.io/badge/Base_Sepolia-0052FF?style=flat-square&logo=coinbase&logoColor=white)](https://base.org)
+[![License](https://img.shields.io/badge/License-MIT-444444?style=flat-square)](LICENSE)
 
----
+An autonomous crypto trading agent that monitors live BTC market data, evaluates conditions using a 13-indicator confluence strategy, and executes trades via Kraken CLI — with on-chain trustless logging via ERC-8004.
 
-## ✨ Features
+> Built for the **Surge × Kraken AI Trading Agents Hackathon** on lablab.ai
 
-- **Algorithmic Trading Engine:** Utilizes 13 built-in indicators (VWAP, MACD, RSI, Heiken Ashi, Parabolic SAR, EMAs, etc.) to calculate a real-time market score.
-- **Kraken CLI Integration:** Automatically executes `[DRY RUN]` paper trades on Kraken when the market score crosses the entry threshold.
-- **Web3 Trustless Execution (ERC-8004):** Registers the agent's identity and logs trade intents as on-chain checkpoints on Base Sepolia.
-- **Risk Management:** Includes session filters (Tokyo/London/NY bands), 1% risk profiling, and a 3-tranche exit strategy (Stop Loss, Take Profit 1, Take Profit 2).
-- **Live Streamlit Dashboard:** A local web UI (`app.py`) to easily start, stop, and monitor the agent's live terminal logs.
+</div>
 
 ---
 
-## 🏗️ System Architecture
+## ▸ Features
+
+- **13-Indicator Confluence Engine** — VWAP, MACD, RSI, Heiken Ashi, Parabolic SAR, EMAs, and more. The agent calculates a real-time composite market score before entering any position.
+- **Kraken CLI Execution** — Automatically places `[DRY RUN]` paper trades when the confluence score crosses the entry threshold.
+- **ERC-8004 On-Chain Logging** — Registers agent identity and logs every trade intent as an immutable checkpoint on Base Sepolia.
+- **Risk Management** — Session filters (Tokyo/London/NY bands), 1% risk profiling, and a 3-tranche exit strategy (Stop Loss → TP1 → TP2).
+- **Streamlit Dashboard** — Local web UI to start, stop, and monitor the agent's live terminal output.
+
+---
+
+## ▸ Architecture
 
 ```mermaid
-graph TD;
-    A[Market Data API / Kraken] -->|Live Websocket| B(Agent Core - agent.py)
+graph LR
+    A[Kraken Market Data] -->|WebSocket Feed| B(Agent Core)
     B --> C{13-Indicator Confluence}
-    C -->|Entry Signal| D[Kraken CLI Exec]
-    C -->|Exit Signal| D
-    B --> E[Web3 Logger]
-    E -->|ERC-8004 Checkpoint| F[(Base Sepolia Testnet)]
-    G[Streamlit Dashboard] --- B
+    C -->|Score > Threshold| D[Kraken CLI — Execute Trade]
+    C -->|Score < Threshold| E[Hold / Monitor]
+    B --> F[ERC-8004 Logger]
+    F -->|Checkpoint| G[(Base Sepolia)]
+    H[Streamlit Dashboard] <--> B
 ```
 
 ---
 
-## 🛠️ Prerequisites
+## ▸ Prerequisites
 
 - **Python 3.8+**
-- **Kraken CLI** ([Documentation](https://docs.kraken.com/cli/)) configured with a Read-Only API key.
-- A **Web3 Wallet** (e.g., MetaMask) loaded with Base Sepolia testnet ETH.
-- **Pinata / IPFS** account for Agent Card URI hosting.
+- **Kraken CLI** — configured with a Read-Only API key ([docs](https://docs.kraken.com/cli/))
+- **Web3 Wallet** — loaded with Base Sepolia testnet ETH
+- **Pinata / IPFS** — for Agent Card URI hosting
 
 ---
 
-## ⚙️ Installation & Setup
+## ▸ Setup
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/shashankrpatil077-ctrl/Street_07.git
-   cd Street_07
-   ```
+```bash
+git clone https://github.com/shashankrpatil077-ctrl/Street_07.git
+cd Street_07
+pip install -r requirements.txt
+```
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Create a `.env` file in the root directory:
 
-3. **Configure Environment Variables:**
-   Create a `.env` file in the root directory and add the following keys:
-   ```env
-   KRAKEN_API_KEY=your_kraken_api_key
-   KRAKEN_PRIVATE_KEY=your_kraken_private_key
-   WEB3_WALLET_PRIVATE_KEY=your_wallet_private_key
-   RPC_URL=your_base_sepolia_rpc_url
-   PINATA_API_KEY=your_pinata_api_key
-   PINATA_SECRET_API_KEY=your_pinata_secret_key
-   ```
+```env
+KRAKEN_API_KEY=your_kraken_api_key
+KRAKEN_PRIVATE_KEY=your_kraken_private_key
+WEB3_WALLET_PRIVATE_KEY=your_wallet_private_key
+RPC_URL=your_base_sepolia_rpc_url
+PINATA_API_KEY=your_pinata_api_key
+PINATA_SECRET_API_KEY=your_pinata_secret_key
+```
 
 ---
 
-## 🚀 Usage
+## ▸ Usage
 
-**To run the agent via the dashboard:**
+**Dashboard mode:**
 ```bash
 streamlit run app.py
 ```
-This will launch a local dashboard where you can monitor indicators, logs, and start/stop the trading engine.
 
-**To run the agent directly:**
+**Direct execution:**
 ```bash
 python agent.py
 ```
 
 ---
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## ▸ License
+
+MIT License — see [LICENSE](LICENSE) for details.
