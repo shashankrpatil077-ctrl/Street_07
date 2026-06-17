@@ -20,6 +20,21 @@
 
 ---
 
+## 🏗️ System Architecture
+
+```mermaid
+graph TD;
+    A[Market Data API / Kraken] -->|Live Websocket| B(Agent Core - agent.py)
+    B --> C{13-Indicator Confluence}
+    C -->|Entry Signal| D[Kraken CLI Exec]
+    C -->|Exit Signal| D
+    B --> E[Web3 Logger]
+    E -->|ERC-8004 Checkpoint| F[(Base Sepolia Testnet)]
+    G[Streamlit Dashboard] --- B
+```
+
+---
+
 ## 🛠️ Prerequisites
 
 - **Python 3.8+**
